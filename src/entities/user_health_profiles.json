@@ -1,0 +1,121 @@
+
+{
+    "name": "user_health_profiles",
+    "options": {
+      "validator": {
+        "$jsonSchema": {
+          "bsonType": "object",
+          "required": ["user_id", "age", "height", "weight", "gender", "blood_group", "createdAt"],
+          "properties": {
+            "user_id": {
+              "bsonType": "string",
+              "description": "User ID linked to authentication system"
+            },
+            "age": {
+              "bsonType": "int",
+              "minimum": 1,
+              "maximum": 120
+            },
+            "height": {
+              "bsonType": "number",
+              "minimum": 50,
+              "maximum": 250,
+              "description": "Height in cm"
+            },
+            "weight": {
+              "bsonType": "number",
+              "minimum": 10,
+              "maximum": 300,
+              "description": "Weight in kg"
+            },
+            "gender": {
+              "bsonType": "string",
+              "enum": ["male", "female", "other"]
+            },
+            "blood_group": {
+              "bsonType": "string",
+              "enum": ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"]
+            },
+            "diseases": {
+              "bsonType": "array",
+              "items": {
+                "bsonType": "object",
+                "properties": {
+                  "name": {
+                    "bsonType": "string",
+                    "enum": ["diabetes", "hypertension", "thyroid", "heart_disease", "pcod", "arthritis", "obesity", "anemia"]
+                  },
+                  "severity": {
+                    "bsonType": "string",
+                    "enum": ["mild", "moderate", "severe"]
+                  }
+                }
+              }
+            },
+            "allergies": {
+              "bsonType": "array",
+              "items": {
+                "bsonType": "string",
+                "enum": ["gluten", "dairy", "nuts", "soy", "eggs", "shellfish"]
+              }
+            },
+            "dietary_habit": {
+              "bsonType": "string",
+              "enum": ["vegetarian", "non_vegetarian", "vegan", "eggetarian"]
+            },
+            "preferred_cuisine": {
+              "bsonType": "array",
+              "items": {
+                "bsonType": "string",
+                "enum": ["north_indian", "south_indian", "gujarati", "bengali", "punjabi", "maharashtrian"]
+              }
+            },
+            "religious_restrictions": {
+              "bsonType": "array",
+              "items": {
+                "bsonType": "string",
+                "enum": ["jain", "halal", "sattvic"]
+              }
+            },
+            "activity_level": {
+              "bsonType": "string",
+              "enum": ["sedentary", "moderate", "active"]
+            },
+            "work_type": {
+              "bsonType": "string",
+              "enum": ["desk_job", "field_work", "student"]
+            },
+            "ayurvedic_constitution": {
+              "bsonType": "string",
+              "enum": ["vata", "pitta", "kapha", "vata_pitta", "pitta_kapha", "vata_kapha"]
+            },
+            "health_goals": {
+              "bsonType": "array",
+              "items": {
+                "bsonType": "string",
+                "enum": ["weight_loss", "weight_gain", "weight_maintenance", "diabetes_control", "heart_health", "digestive_health"]
+              }
+            },
+            "current_medications": {
+              "bsonType": "array",
+              "items": {
+                "bsonType": "string"
+              }
+            },
+            "createdAt": {
+              "bsonType": "string",
+              "title": "datetime"
+            },
+            "updatedAt": {
+              "bsonType": "string",
+              "title": "datetime"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "validationLevel": "moderate",
+      "validationAction": "warn"
+    }
+  }
+  

@@ -1,0 +1,110 @@
+
+{
+    "name": "diet_plans",
+    "options": {
+      "validator": {
+        "$jsonSchema": {
+          "bsonType": "object",
+          "required": ["user_id", "plan_name", "start_date", "end_date", "meals", "generated_at"],
+          "properties": {
+            "user_id": {
+              "bsonType": "string"
+            },
+            "plan_name": {
+              "bsonType": "string"
+            },
+            "start_date": {
+              "bsonType": "string",
+              "title": "datetime"
+            },
+            "end_date": {
+              "bsonType": "string",
+              "title": "datetime"
+            },
+            "meals": {
+              "bsonType": "object",
+              "properties": {
+                "monday": {
+                  "bsonType": "object",
+                  "properties": {
+                    "breakfast": {"bsonType": "array"},
+                    "lunch": {"bsonType": "array"},
+                    "dinner": {"bsonType": "array"},
+                    "snacks": {"bsonType": "array"}
+                  }
+                },
+                "tuesday": {
+                  "bsonType": "object",
+                  "properties": {
+                    "breakfast": {"bsonType": "array"},
+                    "lunch": {"bsonType": "array"},
+                    "dinner": {"bsonType": "array"},
+                    "snacks": {"bsonType": "array"}
+                  }
+                },
+                "wednesday": {
+                  "bsonType": "object",
+                  "properties": {
+                    "breakfast": {"bsonType": "array"},
+                    "lunch": {"bsonType": "array"},
+                    "dinner": {"bsonType": "array"},
+                    "snacks": {"bsonType": "array"}
+                  }
+                },
+                "thursday": {
+                  "bsonType": "object",
+                  "properties": {
+                    "breakfast": {"bsonType": "array"},
+                    "lunch": {"bsonType": "array"},
+                    "dinner": {"bsonType": "array"},
+                    "snacks": {"bsonType": "array"}
+                  }
+                },
+                "friday": {
+                  "bsonType": "object",
+                  "properties": {
+                    "breakfast": {"bsonType": "array"},
+                    "lunch": {"bsonType": "array"},
+                    "dinner": {"bsonType": "array"},
+                    "snacks": {"bsonType": "array"}
+                  }
+                },
+                "saturday": {
+                  "bsonType": "object",
+                  "properties": {
+                    "breakfast": {"bsonType": "array"},
+                    "lunch": {"bsonType": "array"},
+                    "dinner": {"bsonType": "array"},
+                    "snacks": {"bsonType": "array"}
+                  }
+                },
+                "sunday": {
+                  "bsonType": "object",
+                  "properties": {
+                    "breakfast": {"bsonType": "array"},
+                    "lunch": {"bsonType": "array"},
+                    "dinner": {"bsonType": "array"},
+                    "snacks": {"bsonType": "array"}
+                  }
+                }
+              }
+            },
+            "total_calories": {
+              "bsonType": "number"
+            },
+            "generated_at": {
+              "bsonType": "string",
+              "title": "datetime"
+            },
+            "is_active": {
+              "bsonType": "bool"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "validationLevel": "moderate",
+      "validationAction": "warn"
+    }
+  }
+  

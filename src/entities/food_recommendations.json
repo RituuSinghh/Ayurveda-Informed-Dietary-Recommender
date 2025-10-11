@@ -1,0 +1,53 @@
+
+{
+    "name": "food_recommendations",
+    "options": {
+      "validator": {
+        "$jsonSchema": {
+          "bsonType": "object",
+          "required": ["user_id", "food_id", "reason", "score", "generated_at"],
+          "properties": {
+            "user_id": {
+              "bsonType": "string",
+              "description": "User ID"
+            },
+            "food_id": {
+              "bsonType": "string",
+              "description": "Food ID from ancient_foods collection"
+            },
+            "reason": {
+              "bsonType": "string",
+              "description": "Why this food is recommended"
+            },
+            "score": {
+              "bsonType": "number",
+              "minimum": 0,
+              "maximum": 100,
+              "description": "Recommendation score"
+            },
+            "health_match": {
+              "bsonType": "array",
+              "items": {
+                "bsonType": "string"
+              },
+              "description": "Health conditions this food helps with"
+            },
+            "generated_at": {
+              "bsonType": "string",
+              "title": "datetime"
+            },
+            "user_rating": {
+              "bsonType": "int",
+              "minimum": 1,
+              "maximum": 5,
+              "description": "User feedback rating"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "validationLevel": "moderate",
+      "validationAction": "warn"
+    }
+  }
+  

@@ -1,0 +1,157 @@
+
+{
+    "name": "ancient_foods",
+    "options": {
+      "validator": {
+        "$jsonSchema": {
+          "bsonType": "object",
+          "required": ["name_english", "name_hindi", "cuisine_type", "ingredients", "health_benefits", "meal_type", "preparation_time", "rating"],
+          "properties": {
+            "name_english": {
+              "bsonType": "string",
+              "description": "Food name in English"
+            },
+            "name_hindi": {
+              "bsonType": "string",
+              "description": "Food name in Hindi"
+            },
+            "name_sanskrit": {
+              "bsonType": "string",
+              "description": "Food name in Sanskrit"
+            },
+            "cuisine_type": {
+              "bsonType": "string",
+              "enum": ["north_indian", "south_indian", "gujarati", "bengali", "punjabi", "maharashtrian", "ayurvedic"]
+            },
+            "ingredients": {
+              "bsonType": "array",
+              "items": {
+                "bsonType": "object",
+                "properties": {
+                  "name": {"bsonType": "string"},
+                  "quantity": {"bsonType": "string"},
+                  "unit": {"bsonType": "string"}
+                }
+              }
+            },
+            "nutritional_values": {
+              "bsonType": "object",
+              "properties": {
+                "calories": {"bsonType": "number"},
+                "protein": {"bsonType": "number"},
+                "carbs": {"bsonType": "number"},
+                "fat": {"bsonType": "number"},
+                "fiber": {"bsonType": "number"},
+                "vitamins": {"bsonType": "array"},
+                "minerals": {"bsonType": "array"}
+              }
+            },
+            "health_benefits": {
+              "bsonType": "array",
+              "items": {
+                "bsonType": "string",
+                "enum": ["diabetes", "hypertension", "thyroid", "heart_disease", "pcod", "arthritis", "obesity", "anemia", "digestive_health", "immunity", "bone_health"]
+              }
+            },
+            "contraindications": {
+              "bsonType": "array",
+              "items": {
+                "bsonType": "string"
+              }
+            },
+            "ayurvedic_properties": {
+              "bsonType": "object",
+              "properties": {
+                "dosha_balance": {
+                  "bsonType": "array",
+                  "items": {
+                    "bsonType": "string",
+                    "enum": ["vata", "pitta", "kapha", "tridosha"]
+                  }
+                },
+                "taste": {
+                  "bsonType": "array",
+                  "items": {
+                    "bsonType": "string",
+                    "enum": ["sweet", "sour", "salty", "bitter", "pungent", "astringent"]
+                  }
+                },
+                "energy": {
+                  "bsonType": "string",
+                  "enum": ["heating", "cooling", "neutral"]
+                }
+              }
+            },
+            "season": {
+              "bsonType": "array",
+              "items": {
+                "bsonType": "string",
+                "enum": ["summer", "winter", "monsoon", "all"]
+              }
+            },
+            "meal_type": {
+              "bsonType": "array",
+              "items": {
+                "bsonType": "string",
+                "enum": ["breakfast", "lunch", "dinner", "snacks"]
+              }
+            },
+            "recipe": {
+              "bsonType": "object",
+              "properties": {
+                "instructions": {
+                  "bsonType": "array",
+                  "items": {"bsonType": "string"}
+                },
+                "cooking_method": {
+                  "bsonType": "string",
+                  "enum": ["boiled", "steamed", "roasted", "fried", "raw", "fermented"]
+                },
+                "serving_size": {"bsonType": "string"}
+              }
+            },
+            "preparation_time": {
+              "bsonType": "int",
+              "minimum": 5,
+              "description": "Time in minutes"
+            },
+            "cooking_time": {
+              "bsonType": "int",
+              "minimum": 0,
+              "description": "Time in minutes"
+            },
+            "rating": {
+              "bsonType": "number",
+              "minimum": 1,
+              "maximum": 5
+            },
+            "image_url": {
+              "bsonType": "string"
+            },
+            "dietary_compatibility": {
+              "bsonType": "array",
+              "items": {
+                "bsonType": "string",
+                "enum": ["vegetarian", "vegan", "non_vegetarian", "eggetarian", "jain", "sattvic"]
+              }
+            },
+            "creator": {
+              "bsonType": "string"
+            },
+            "createdAt": {
+              "bsonType": "string",
+              "title": "datetime"
+            },
+            "updatedAt": {
+              "bsonType": "string",
+              "title": "datetime"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "validationLevel": "moderate",
+      "validationAction": "warn"
+    }
+  }
+  

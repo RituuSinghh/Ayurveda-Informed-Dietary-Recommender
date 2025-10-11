@@ -1,0 +1,69 @@
+
+{
+    "name": "health_logs",
+    "options": {
+      "validator": {
+        "$jsonSchema": {
+          "bsonType": "object",
+          "required": ["user_id", "date", "logged_at"],
+          "properties": {
+            "user_id": {
+              "bsonType": "string"
+            },
+            "date": {
+              "bsonType": "string",
+              "title": "datetime",
+              "description": "Date of the health log entry"
+            },
+            "weight": {
+              "bsonType": "number",
+              "minimum": 10,
+              "maximum": 300
+            },
+            "bmi": {
+              "bsonType": "number",
+              "minimum": 10,
+              "maximum": 50
+            },
+            "blood_sugar": {
+              "bsonType": "object",
+              "properties": {
+                "fasting": {"bsonType": "number"},
+                "post_meal": {"bsonType": "number"},
+                "unit": {"bsonType": "string", "enum": ["mg/dl", "mmol/l"]}
+              }
+            },
+            "blood_pressure": {
+              "bsonType": "object",
+              "properties": {
+                "systolic": {"bsonType": "int"},
+                "diastolic": {"bsonType": "int"},
+                "unit": {"bsonType": "string", "enum": ["mmHg"]}
+              }
+            },
+            "notes": {
+              "bsonType": "string",
+              "maxLength": 500
+            },
+            "mood": {
+              "bsonType": "string",
+              "enum": ["excellent", "good", "fair", "poor"]
+            },
+            "energy_level": {
+              "bsonType": "int",
+              "minimum": 1,
+              "maximum": 10
+            },
+            "logged_at": {
+              "bsonType": "string",
+              "title": "datetime"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "validationLevel": "moderate",
+      "validationAction": "warn"
+    }
+  }
+  
