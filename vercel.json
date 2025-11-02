@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "name": "ayurveda-informed-dietary-recommender-frontend",
+  "builds": [
+    {
+      "src": "vite.config.ts",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist" }
+    }
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/index.html" }
+  ],
+  "framework": "vite",
+  "env": {
+    "VITE_API_BASE_URL": "https://ayurveda-informed-dietary-recommender-backend.onrender.com"
+  }
+}
