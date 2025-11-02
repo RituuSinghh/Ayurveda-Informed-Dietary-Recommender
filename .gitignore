@@ -1,2 +1,14 @@
-node_modules
-node_modules
+# Node (frontend)
+node_modules/
+dist/
+.vscode/
+.env
+
+# Python backend
+__pycache__/
+*.pyc
+backend/.env
+
+# OS / Misc
+.DS_Store
+Thumbs.db
